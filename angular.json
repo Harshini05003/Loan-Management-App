@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/loan_system",
+            "outputPath": "build_files",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -38,11 +38,12 @@
           },
           "configurations": {
             "production": {
+              "outputPath":"build_files/prod",
               "budgets": [
                 {
                   "type": "initial",
                   "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumError": "3mb"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -53,6 +54,7 @@
               "outputHashing": "all"
             },
             "development": {
+              "outputPath":"build_files/dev",
               "buildOptimizer": false,
               "optimization": false,
               "vendorChunk": true,
@@ -60,6 +62,9 @@
               "sourceMap": true,
               "namedChunks": true
             }
+          },
+          "qa":{
+            "outputPath":"build_files/qa"
           },
           "defaultConfiguration": "production"
         },

@@ -1,19 +1,20 @@
+
 {
-    "/api/homeDetails": {
-      "target": "https://6577e514197926adf62ef4c0.mockapi.io",
-      "secure": false,
-      "changeOrigin": true,
-      "pathRewrite": {
-        "^/api/homeDetails": "/api/data"
-      }
-    },
-    "/api/summaryDetails": {
-      "target": "https://6577e514197926adf62ef4c0.mockapi.io",
-      "secure": false,
-      "changeOrigin": true,
-      "pathRewrite": {
-        "^/api/summaryDetails": "/api/bank_info"
-      }
+  "/api/homeDetails": {
+    "target": "https://6577e514197926adf62ef4c0.mockapi.io",
+    "secure": false,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api/homeDetails": "/api/data"
     }
+  },
+  "/api/summaryDetails": {
+    "target": "https://6577e514197926adf62ef4c0.mockapi.io",
+    "secure": false,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api/summaryDetails": "/api/bank_info"
+    }
+  }
 }
   

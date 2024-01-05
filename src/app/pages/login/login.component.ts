@@ -4,6 +4,7 @@ import { userCredentials } from 'src/app/models/credentials';
 import { icons } from 'src/app/models/icons';
 import { ApiService } from 'src/app/services/api.service';
 import { StorageService } from 'src/app/services/storage.service';
+import { ToasterService } from 'src/app/services/toaster.service';
 
 
 @Component({
@@ -12,7 +13,7 @@ import { StorageService } from 'src/app/services/storage.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-constructor(private route:Router,private storage:StorageService){}
+constructor(private route:Router,private storage:StorageService,private toasterService:ToasterService){}
 username:string='';
 password:any;
 role:any;
@@ -40,8 +41,8 @@ checkValidation(){
   }
   else{
     console.log("Error"+valid);
+    this.toasterService.showDenyToaster();
     
-    this.visible=true;
   }
 }
 
