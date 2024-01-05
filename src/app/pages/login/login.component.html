@@ -1,0 +1,8 @@
+<p-dialog header="Error" [(visible)]="visible" [style]="{width: '30vw'}" [modal]="true">
+    <p>
+        <i [className]="icons.wrong"> </i> User Credentials are not valid
+    </p>
+</p-dialog>
+<div class="container">
+    <app-form (emitName)="sendName($event)" (emitPassword)="sendPassword($event)" (emitRole)="navigateHome($event)"></app-form>
+</div>

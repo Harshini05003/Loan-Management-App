@@ -1,0 +1,42 @@
+.container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin:2px;
+    
+    img{
+        width:50px;
+        height: 50px;
+        border-radius: 50%;
+        margin-right: 5px;
+    }
+   
+    .right_container{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+    }
+    background: linear-gradient(135deg, #D2B48C, #AABD8C);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    height: 60px;
+    position:sticky;
+    z-index: 100;
+    top:0
+
+}
+.button-right{
+  margin-right: 2px;
+}
+::ng-deep .p-button-success{
+    padding:5px;
+    font-size: small;
+
+  }
+::ng-deep .p-button-icon{
+    margin-right: 5px;
+}
+::ng-deep .p-button:hover{
+  opacity: 0.9;
+}

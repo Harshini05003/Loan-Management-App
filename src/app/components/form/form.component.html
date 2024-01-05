@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="heading">
+        <h2>Loan Management System</h2>
+    </div>
+    <div class="form">
+        <label for="username">Username</label>
+        <input pInputText id="username" aria-describedby="username-help" [(ngModel)]="username" placeholder="Your Name" required title="Username is required" (ngModelChange)="enableSubmit()"/>
+        <label for="password">Password</label>
+        <p-password [(ngModel)]="password" [toggleMask]="true" placeholder="Your Password" required title="password is required" (ngModelChange)="enableSubmit()"></p-password>
+        <label for="role">Role</label>
+        <div class="radio">
+            <p-radioButton name="role" value="Bank Manager" required="Role is required"  inputId="role1" [(ngModel)]="role" (ngModelChange)="enableSubmit()"></p-radioButton>
+            <label for="role1" class="ml-2">Bank Manager</label>
+            <p-radioButton name="role" value="Loan Officer" required="Role is required" inputId="role2" [(ngModel)]="role" (ngModelChange)="enableSubmit()"></p-radioButton>
+            <label for="role2" class="ml-2">Loan Officer</label>
+        </div> 
+        <p-button label="Login" severity="secondary" (click)="submit()" class="login" type="button" [disabled]="!enable"></p-button>
+    </div>
+</div>

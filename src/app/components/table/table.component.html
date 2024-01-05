@@ -1,0 +1,58 @@
+<p-toast></p-toast>
+<div class="card">
+   <p-table [columns]="headers" [value]="homeDetails" [tableStyle]="{ 'min-width': '50rem' }" dataKey="id" >
+      <ng-template pTemplate="header" let-columns>
+           <tr class="header">
+               <th *ngFor="let head of columns;let i=index;" pSortableColumn="{{keys[i]}}">
+                   {{head}}  <p-sortIcon field="{{keys[i]}}"></p-sortIcon>
+               </th>
+               <th>Click for more</th>
+           </tr>
+       </ng-template>
+       <ng-template pTemplate="body" let-homeDetail let-expanded="expanded">
+           <tr class="data">
+               <td *ngFor="let key of keys" (click)="navigateSummary(homeDetail?.id)">
+                 <span [ngStyle]="{'color': getStatusColor(homeDetail['loan_status'])}" *ngIf="key==='loan_status'">
+                    {{ homeDetail[key] }}
+                 </span>
+                 <span  *ngIf="!(key==='loan_status')">
+                    {{ homeDetail[key] }}
+                 </span>
+               </td>
+               <td>
+                  <button type='button'pButton pRipple class="p-button-text p-button-rounded"[pRowToggler]="homeDetail" [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></button>
+               </td>
+           </tr>
+       </ng-template>
+    <ng-template pTemplate="rowexpansion" let-homeDetail >
+        <tr>
+            <td colspan="7">
+                <div class="p-3">
+                    <p-table [value]="singleArray" dataKey="id">
+                        <ng-template pTemplate="header">
+                            <tr class="header">
+                                <th *ngFor="let head of headersExpanded">
+                                    {{head}}
+                                </th>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body">
+                            <tr class="data">
+                                <td *ngFor="let key of keysExpanded">
+                                    {{homeDetail[key]}}
+                                 </td>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="emptymessage">
+                            <tr>
+                                <td colspan="6">There are no expanded rows.</td>
+                            </tr>
+                        </ng-template>
+                    </p-table>
+                </div>
+            </td>
+        </tr>
+    </ng-template>
+   </p-table>
+</div>
+

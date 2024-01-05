@@ -1,0 +1,22 @@
+export const userCredentials=[
+    {
+        'username':'Harshini',
+        'password':'Harshk003@'
+    },
+    {
+        'username':'Harine',
+        'password':'Harine1'
+    },
+    {
+        'username':'Shruthika',
+        'password':'Shruthika1'
+    },
+    {
+        'username':'Tinu',
+        'password':'Tinu1'
+    },
+    {
+        'username':'Santhosh',
+        'password':'Santhosh1'
+    }
+]

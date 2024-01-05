@@ -1,0 +1,38 @@
+<p-toast></p-toast>
+<div class="container">
+    <div class="box_1">
+        <p-panel header="Full Details">
+            <table>
+              <tr *ngFor="let key of keys;let i=index">
+                <th>{{headers[i]}}</th>
+                <td  [style]="{'font-weight':'500','color':'Black'}">{{summaryDetails[key]}}</td>
+              </tr>
+            </table>
+        </p-panel>
+    </div>
+    <div class="box_2">
+        <p-panel header="Loan Documents">
+            <div class="container_1">
+                <button type="button" pButton pRipple  (click)="exportPdf()" class="p-button-warning mr-2 attachment" pTooltip="Download" tooltipPosition="right"><i [class]="icons.attachment">&nbsp;</i>Attachment 1</button>
+                <button type="button" pButton pRipple  (click)="exportPdf()" class="p-button-warning mr-2 attachment" pTooltip="Download"  tooltipPosition="right"><i [class]="icons.attachment">&nbsp;</i>Attachment 2</button>
+                <button type="button" pButton pRipple  (click)="exportPdf()" class="p-button-warning mr-2 attachment" pTooltip="Download"  tooltipPosition="right"><i [class]="icons.attachment">&nbsp;</i>Attachment 3</button>
+            </div>
+            <div *ngIf="role=='Bank Manager'" class="container_2">
+
+                <button (click)="approve()" pButton class="success" icon="{{icons.tick}}">Approve</button>
+                <button (click)="progressReason()" pButton class="info"  icon="{{icons.wait}}">Pending</button>
+                <button (click)="denyReason()" pButton class="danger" icon="{{icons.wrong}}">Deny</button>
+
+                <div *ngIf="toggleProgress" class="reasonBox">
+                    <input type="text" [(ngModel)]="reason" placeholder="In progress Reason">
+                    <button (click)="wait()"><i [className]="icons.post">&nbsp;</i>Post</button>
+                </div>
+                <div *ngIf="toggleDeny"  class="reasonBox">
+                    <input type="text" [(ngModel)]="reason"  placeholder="Denied Reason">
+                    <button (click)="deny()"><i [className]="icons.post">&nbsp;</i>Post</button>
+                </div>
+            </div>
+        </p-panel>
+        <button class="Back" (click)="getBack()"><i [class]="icons.home">&nbsp;</i>Get Back Home</button>
+    </div>
+</div>
