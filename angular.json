@@ -37,6 +37,9 @@
             "scripts": []
           },
           "configurations": {
+            "qa":{
+              "outputPath":"build_files/qa"
+            },
             "production": {
               "outputPath":"build_files/prod",
               "budgets": [
@@ -62,9 +65,6 @@
               "sourceMap": true,
               "namedChunks": true
             }
-          },
-          "qa":{
-            "outputPath":"build_files/qa"
           },
           "defaultConfiguration": "production"
         },

@@ -19,6 +19,7 @@ password:any;
 role:any;
 visible=false;
 icons=icons;
+ctr:number=0;
 navigateHome(role:any){
   this.role=role;
   if(this.username && this.password)
@@ -41,7 +42,10 @@ checkValidation(){
   }
   else{
     console.log("Error"+valid);
-    this.toasterService.showDenyToaster();
+    this.ctr++;
+    if(this.ctr==1){
+      this.toasterService.showDenyToaster();
+    }
     
   }
 }

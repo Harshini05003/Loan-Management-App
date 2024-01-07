@@ -25,4 +25,7 @@ export class ToasterService {
       this.messageService.add({ severity: 'error', summary: 'Deny', detail: 'Loan Denied' });
     },500)
   }
+  clearService(){
+    this.messageService.clear();
+  }
 }
