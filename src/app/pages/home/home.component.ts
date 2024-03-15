@@ -21,6 +21,7 @@ role:any;
 homeDetails:homeDetails[]=[];
 visible:boolean=false;
 icons=icons;
+loaderValue:boolean=false;
 
 ngOnInit(){
   this.getRole();
@@ -36,8 +37,14 @@ getRole(){
 getCurrencySymbol(money:any){
   return `$${money}`;
 }
+checkLoader(){
+  this.load.loader$.subscribe((response:boolean)=>{
+    this.loaderValue=Boolean(response);
+  })
+}
 getHomeDetails() {
   this.load?.showLoader();
+  this.checkLoader();
   this.api?.getHomeDetails()?.pipe(
     map((response: any) => {
       return response.map((item:any) => {
@@ -48,8 +55,8 @@ getHomeDetails() {
     })
   )?.subscribe({
     next: (response:any) => {
-      this.load.hideLoader();
       this.homeDetails=response;
+      this.load?.hideLoader();
     },
     error: (error) => {
       this.load.hideLoader();

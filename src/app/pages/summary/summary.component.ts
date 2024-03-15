@@ -20,6 +20,7 @@ export class SummaryComponent {
   visible:boolean=false;
   role:any;
   icons=icons;
+  loaderValue:boolean=false;
   ngOnInit(){
    this.getId();
    this.getRole();
@@ -33,8 +34,14 @@ export class SummaryComponent {
   getCurrencySymbol(money:any){
     return `$${money}`;
   }
+  checkLoader(){
+    this.load.loader$.subscribe((response:Boolean)=>{
+      this.loaderValue=Boolean(response);
+    })
+  }
   getSummaryDetails(id:any){
     this.load?.showLoader();
+    this.checkLoader();
     this.api?.getSummaryDetails(id)?.pipe(
       map((value:any)=>{
         value.dob=moment(new Date(value.dob)).format('DD-MM-YYYY');

@@ -1,11 +1,14 @@
 export const userCredentials=[
     {
         'username':'Harshini',
-        'password':'Harshk003@'
+        'password':'Harshk003@',
+        'role':'admin'
     },
     {
         'username':'Harine',
-        'password':'Harine1'
+        'password':'Harine1',
+        'role':'tester'
+        
     },
     {
         'username':'Shruthika',

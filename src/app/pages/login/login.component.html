@@ -3,7 +3,7 @@
         <i [className]="icons.wrong"> </i> User Credentials are not valid
     </p>
 </p-dialog>
-<p-toast></p-toast>
+<p-toast [life]='1000'></p-toast>
 <div class="container">
     <app-form (emitName)="sendName($event)" (emitPassword)="sendPassword($event)" (emitRole)="navigateHome($event)"></app-form>
 </div>
