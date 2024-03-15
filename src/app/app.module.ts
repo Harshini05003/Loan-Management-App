@@ -12,6 +12,8 @@ import { primeNgModule } from './primeng.module';
 import {HttpClientModule} from '@angular/common/http';
 import { MessageService } from 'primeng/api';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { GoogleLoginProvider } from 'angularx-social-login';
+
 
 
 @NgModule({
@@ -24,7 +26,8 @@ import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform
     primeNgModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    NoopAnimationsModule
+    NoopAnimationsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

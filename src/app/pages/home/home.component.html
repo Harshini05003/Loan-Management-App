@@ -1,11 +1,11 @@
+
 <div class="container">
+    <ngx-loading
+    [show]="loaderValue"
+    [config]="{ backdropBorderRadius: '3px' }"
+    ></ngx-loading>
+   
     <app-header></app-header>
-    <div *ngIf="load?.loaderValue()" class="spinner">
-        <ngx-spinner type="ball-scale-multiple" 
-        bdColor="rgba(0, 0, 0, 1)"
-        template="<img src='assets/loader.gif' />">
-       </ngx-spinner>
-    </div>
     <p-dialog header="Error" [(visible)]="visible" [style]="{width: '30vw'}" [modal]="true">
         <p>
             <i [className]="icons.wrong"> </i> 404 Error
@@ -14,3 +14,4 @@
     <p-toast></p-toast>
     <app-table [homeDetails]="homeDetails" ></app-table>
 </div>
+

@@ -19,6 +19,7 @@ password:any;
 role:any;
 visible=false;
 icons=icons;
+counter:number=0;
 navigateHome(role:any){
   this.role=role;
   if(this.username && this.password)
@@ -41,9 +42,14 @@ checkValidation(){
   }
   else{
     console.log("Error"+valid);
-    this.toasterService.showDenyToaster();
-    
+    // if(this.toasterService.toasterValue$'show'){
+    //   this.toasterService.showDenyToaster();
+    // }
+    // setTimeout(()=>{
+    //   this.toasterService.clearService();
+    // },1000)
   }
 }
+
 
 }

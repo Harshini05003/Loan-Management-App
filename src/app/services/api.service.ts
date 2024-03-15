@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { urls } from '../models/urls';
-import { Observable, Subject } from 'rxjs';
+import { Observable, Subject, forkJoin } from 'rxjs';
 import { homeDetails, summaryDetails } from '../models/interfaces';
 
 @Injectable({
@@ -11,6 +11,7 @@ export class ApiService {
   urls=urls
   
   constructor(private http:HttpClient) { }
+
   getHomeDetails():Observable<homeDetails>{
     return this.http.get<homeDetails>(urls.homeDetails)
   }

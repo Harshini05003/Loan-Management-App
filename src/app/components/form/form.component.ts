@@ -1,5 +1,8 @@
+import { SocialAuthService, SocialUser } from '@abacritt/angularx-social-login';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Route, Router } from '@angular/router';
+
 import Swal from 'sweetalert2';
 
 @Component({
@@ -15,8 +18,11 @@ export class FormComponent {
   role:string='';
   password:any;
   enable:boolean=false;
-  ngOnInit(){
-  }
+  // loginForm!: FormGroup;
+  // socialUser!: SocialUser;
+  // isLoggedin?: boolean;
+  // google:any;
+  constructor(private authService: SocialAuthService,private router:Router){}
   submit(){
     this.emitRole?.emit(this.role);
     this.emitName?.emit(this.username);
@@ -31,7 +37,16 @@ export class FormComponent {
       this.enable=false;
     }
   }
-  
+  handleCredentialResponse(response:any) {
+    console.log("Encoded JWT ID token: " + response.credential);}
+
+  ngOnInit() {
+    // this.authService.authState.subscribe((user) => {
+    //   this.socialUser = user;
+    //   this.isLoggedin = user != null;
+    //   console.log(this.socialUser);
+    // });
+  }
  
   
 }

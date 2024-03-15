@@ -9,11 +9,13 @@ import Swal from 'sweetalert2';
 export class ToasterService {
 
   constructor(private messageService:MessageService) { }
+  toasterValue$=new Subject<string>();
   toaster$=new BehaviorSubject<string>('null');
   showSuccessToaster(){
     setTimeout(()=>{
       this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Loan approved successfully' });
     },100)
+    this.toasterValue$.next('show');
   }
   showWaitToaster(){
     setTimeout(()=>{
@@ -24,5 +26,9 @@ export class ToasterService {
     setTimeout(()=>{
       this.messageService.add({ severity: 'error', summary: 'Deny', detail: 'Loan Denied' });
     },500)
+  }
+  clearService(){
+    this.messageService.clear();
+    this.toasterValue$.next('deny');
   }
 }

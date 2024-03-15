@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { NgxSpinnerService } from "ngx-spinner";
+import { BehaviorSubject, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -7,16 +8,14 @@ import { NgxSpinnerService } from "ngx-spinner";
 export class LoaderService {
 
   constructor(private spinner:NgxSpinnerService) { }
-  loader:boolean=false;
+
+  loader$=new BehaviorSubject<boolean>(false);
   showLoader(){
-    this.spinner.show();
-    this.loader=true;
+     this.loader$.next(true);
   }
   hideLoader(){
-    this.spinner.hide();
-    this.loader=false;
+    this.loader$.next(false);
   }
-  loaderValue(){
-    return this.loader;
-  }
+ 
+  
 }

@@ -26,6 +26,8 @@ import { MessagesModule } from 'primeng/messages';
 import { AppComponent } from "./app.component";
 import { ReactiveFormsModule } from "@angular/forms";
 import { NgxSpinnerModule } from "ngx-spinner";
+import { NgxLoadingModule } from "ngx-loading";
+import { GoogleLoginProvider, SocialAuthService, SocialAuthServiceConfig, SocialLoginModule } from "@abacritt/angularx-social-login";
 
 @NgModule({
     schemas: [NO_ERRORS_SCHEMA],
@@ -57,10 +59,25 @@ import { NgxSpinnerModule } from "ngx-spinner";
      MessagesModule,
      ReactiveFormsModule,
      NgxSpinnerModule,
-     NgxSpinnerModule.forRoot({ type: 'ball-scale-multiple' })
+     NgxSpinnerModule.forRoot({ type: 'ball-scale-multiple' }),
+     NgxLoadingModule.forRoot({}),
+     SocialLoginModule
     ],
     providers:[
-       MessageService
+       MessageService,
+      //  SocialAuthService,
+      //  {
+      //   provide: 'SocialAuthServiceConfig',
+      //   useValue: {
+      //     autoLogin: false,
+      //     providers: [
+      //       {
+      //         id: GoogleLoginProvider.PROVIDER_ID,
+      //         provider: new GoogleLoginProvider('933037056242-dhmrrd9rm7satmg543jv8830jk75ts0k.apps.googleusercontent.com')
+      //       }
+      //     ]
+      //   } as SocialAuthServiceConfig,
+      // },
     ],
     bootstrap:[
       AppComponent
